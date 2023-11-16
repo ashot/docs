@@ -2,14 +2,14 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Starter Kit",
   "logo": {
-    "dark": "/images/logo-dark.svg",
-    "light": "/logo/logo-light.svg"
+    "dark": "/images/logo-dark.png",
+    "light": "/images/logo-light.png"
   },
   "favicon": "/images/favicon.png",
   "colors": {
     "primary": "#9EB3C8",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "light": "#9EB3C8",
+    "dark": "#9EB3C8",
     "anchors": {
       "from": "#0D9373",
       "to": "#07C983"
@@ -39,8 +39,8 @@
     },
     {
       "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "icon": "people",
+      "url": "https://feedback.vello.ai"
     },
     {
       "name": "Blog",
