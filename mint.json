@@ -2,12 +2,12 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Starter Kit",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/images/logo-dark.svg",
+    "light": "/logo/logo-light.svg"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/images/favicon.png",
   "colors": {
-    "primary": "#0D9373",
+    "primary": "#9EB3C8",
     "light": "#07C983",
     "dark": "#0D9373",
     "anchors": {
@@ -18,24 +18,24 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:hello@vello.ai"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Hello, Vello",
+    "url": "https://vello.ai/app"
   },
   "tabs": [
     {
-      "name": "API Reference",
-      "url": "api-reference"
+      "name": "Blog",
+      "url": "https://blog.vello.ai"
     }
   ],
   "anchors": [
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "https://docs.vello.ai"
     },
     {
       "name": "Community",
@@ -45,7 +45,7 @@
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://blog.vello.ai"
     }
   ],
   "navigation": [
