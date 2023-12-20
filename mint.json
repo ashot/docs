@@ -28,14 +28,14 @@
   "tabs": [
     {
       "name": "Blog",
-      "url": "https://blog.vello.ai"
+      "url": "blog"
     }
   ],
   "anchors": [
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://blog.vello.ai"
+      "url": "blog"
     },
     {
       "name": "Feedback",
@@ -57,8 +57,12 @@
       "pages": ["persona", "files", "images", "code", "train", "sharepersona"]
     },
     {
-      "group": "In-depth",
+      "group": "More",
       "pages": ["keys", "multipersona", "web", "doc", "sharing"]
+    },
+    {
+      "group": "Blog",
+      "pages": ["blog/dec.20.2023", "blog/sep.04.2023"]
     }
     
   ],

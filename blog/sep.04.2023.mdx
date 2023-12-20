@@ -1,0 +1,122 @@
+---
+title: Our Path Towards the Automated Knowledge Worker
+---
+
+Sept 4, 2023
+
+### **Introduction**
+
+The capabilities of GPT4 level LLMs provide the substrate necessary to create AI systems capable of handling significant portions of knowledge work. This includes running complex logic, interacting with multiple APIs, and dynamically handling user input. While various pieces of these systems are being developed and integrated in both open-source projects and commercial products, no end to end generalized system has yet to hit the market.
+
+This document aims to outline the critical components that need to be brought together for such a system. While the sequence to assemble these pieces can differ, leading to distinct intermediate products, the ultimate goal remains the same: a comprehensive, general AI agent.
+
+In the context of this document, an 'AI system' refers to a confluence of aspects - traditional code, business logic, calls to Large Language Models (LLMs), and a product layer that enables seamless collaboration between human and AI.
+
+### **The Current Baseline**
+
+Let's consider as the existing baseline a Retrieval-Augmented Generation (RAG) enabled ReACT agent. This agent is connected to all of a company's tools, has all of the company corpus ingested and searchable, and can take actions in response to user requests. It serves as a reference point for what current systems can achieve, and the follow-up sections will identify the additional puzzle pieces needed to enhance this baseline into a fully functional AI knowledge worker.
+
+### **Key Missing Components**
+
+After considering our baseline, what remains to enable our AI system to function as an automated knowledge worker? Here, we identify three primary components that elevate the system into an autonomous knowledge worker -- Memory, Workflows, and Learning.
+
+1. **Memory System**: The AI system should possess a memory system that can ingest a large corpus of data including, but not limited to historical company data, communication records, tasks, and other sources, and reliably recall the correct data and metadata to accomplish any task. This AI would record these instances as events in a *hierarchical knowledge graph*, allowing it to use the collected data as a form of memory recall.
+
+2. **Workflows**: All AI applications effectively operate as workflows, combining multiple calls to the language model with regular code/functions to accomplish specific tasks. Current workflows, however, are hardcoded into the system. To increase versatility and productivity, such workflows should become components of the application layer, and ideally, the AI system should be able to self-construct, edit, and suggest these workflows in collaboration with the user.
+
+3. **Learning**: As the system is developed and used over time, it will continuously learn and adjust based on feedback, user interactions, and newly encountered data. This ability for constant learning and adaptation is fundamental to improve and evolve the system continually, enabling it to meet the wide-ranging needs of different knowledge work environments, individual companies, and users.
+
+### **Memory System**
+
+The core function of this Memory System is to ingest and recall a vast amount of data, transforming it into a useful "knowledge" that the AI can utilize.
+
+The Memory System consists of two primary elements: recording and recall. In truth, some element of recording can occur "lazily" during recall, and this is ultimately a cost and performance tradeoff but we ignore that complexity below.
+
+A key distinction is that while RAG serves the purpose of recall, this system also creates new deeper conceptual comprehension during the record phase.
+
+**Record**
+
+During the record phase, the system leverages a language model to "read" and extract structured metadata from an event (who/what/when/where). This event is then captured and incorporated into a hierarchical knowledge graph, and associative updates are made across connected entities (like people or projects) based on the newly incorporated information.
+
+Each entity within this knowledge graph has a concise description, continuously updated from these events. The aggregated information from these events forms the core understanding about a given entity.
+
+**Recall**
+
+The second piece, recall, operates as an intelligent search mechanism that the system employs to "remember" or retrieve additional details in a targeted direction. For example, to solve a particular problem or answer a question, the system might need to recall previous instances related to a specific task, person or time, and it does this by "zooming in" on various aspects of the one-sentence entity summary.
+
+This process of recall can be parallelized for efficiency, with multiple recall operations occurring simultaneously to quickly collate requisite information.
+
+Overall, the Memory System functions as a dynamic data repository and retrieval mechanism that equips the AI with a capacity akin to human memory, enabling it to intelligently leverage past information to execute tasks or answer queries.
+
+### **Workflows**
+
+As we move beyond the traditional utility of an AI and aspire to design an automated knowledge worker, defining and executing workflows becomes a key consideration. A workflow, in the context of our AI system, can be visualized as a series of decisions and tasks, represented much like a flowchart or decision tree.
+
+They combine standard functions (which could be either regular code or calls to the language model), and control structures like conditionals (if-else clauses) or iterative processes (map/filter functions).
+
+Inherent in the workflows are two important scenarios to consider:
+
+- **Workflow Definition (DAG)**: These are the set of tasks and requisite decisions that define a process. This takes the form of a Directed Acyclic Graph (DAG), combining atomic tasks and control structures in a coherent flow. The language to define this DAG should be simple and intuitive enough for an end-user or the model itself to understand and manipulate. Workflows are *hierarchical and recursive:* you can reference one workflow from another, allowing you to build a continuously evolving and complexifying behavioral layer.
+
+- **Workflow Run**: It represents an individual "run" or execution of a workflow that exists in a certain stage of completion. As part of its execution, the workflow might interact with various APIs, handle data, make decisions based on the current context and past data or collaborate with the end-user when faced with a decision beyond its current capabilities.
+
+The workflows themselves are presented to end users as a static UI, where they can visually understand the process, and potentially modify or interact with it, at any stage of the workflow.
+
+Creating a flexible and efficient system for defining and executing workflows is pivotal in enabling the AI system to perform complex tasks with minimal user intervention. This complexity allows the system to achieve tasks beyond simple Q&A routines and progress towards becoming an autonomous knowledge worker.
+
+### **Learning**
+
+The learning component is what propels our AI system beyond static functionality and is useful in three ways - as a substrate for building the behavioral layer that understands various domains, flexibility to adapt to a company's specific needs, and for refining its performance over time.
+
+When a user asks the system to perform a task, the system will initially suggest a workflow. The user can then tune or adjust this workflow to better suit their requirements. During the execution of the workflow, the system's behavior may not always align with user expectations or requirements, thus necessitating adjustments.
+
+The learning mechanism is designed to incorporate this feedback and make necessary corrections. In essence, at each node in the DAG representing the workflow, adjustments can be made. Given the AI system's awareness of its position in the execution of a workflow, it understands where to implement the adjustments.
+
+The integration of feedback can happen in two ways:
+
+1. **Fine-tuning one or more LLM nodes**: Feedback can be used as positive or negative examples for few-shot learning or fine-tuning one more LLM nodes in the workflow. This way, the AI system learns from its mistakes and successes, improving its performance over time.
+2. **Adjusting the DAG**: Alternately, feedback can lead to adjustments in the workflow itself, such as adding additional control structures or complexifying the workflow to handle more nuanced situations. This allows the system to enhance its task handling capabilities.
+
+Determining how to implement and propagate feedback is one of the challenges in designing the learning component. This mechanism can be drawn from the concept of "backpropagation" in neural networks, where errors are propagated backward through the network, allowing for iterative refinement of the model's parameters.
+
+However, deciding which type of feedback to use – whether to fine-tune the LLM or adjust the DAG – and how to propagate this feedback requires careful consideration. Here are some possible factors to consider:
+
+- **Complexity of the Issue**: If the LLM makes a correction in a simple task for which it has been trained, using this as a negative example for fine-tuning the LLM might be appropriate. If a task’s completion cannot be achieved due to an overly simplified workflow or absent control structures, adjusting the DAG may be necessary.
+
+- **Frequency of the Issue**: If the same issue recurs regularly, this may indicate a mistake in the workflow, suggesting that an adjustment to the DAG is needed.
+
+For feedback propagation through the DAG, one approach could be implementing a mechanism that identifies the nearest node or nodes that are most likely causing the error and propagating the feedback predominantly to that node and its preceding nodes. The farther away a node is from the point of error, the less impact the feedback from that error should have on adjusting it.
+
+Ultimately, the aim would be to develop this mechanism into a form of automatic and optimal feedback distribution through the system. For example, designing a system that notes and assesses how changes in one node affect the performance of other nodes or using some form of error analysis to attribute the feedback to the appropriate nodes.
+
+Lastly, the degree of user or dev input could depend on the complexity of the task at hand. For lower-stakes tasks, the system could be allowed more automation, while for higher-stakes tasks, there should be more user or dev oversight. This choice could be made customizable based on user comfort and task requirements.
+
+Moving forward, the learning mechanism, coupled with memory and workflows, forms the complete picture of our proposed AI system. Through continuous learning and adaptation, this system is equipped to transform AI utility into AI productivity.
+
+## **Supporting Infrastructure**
+
+While the Memory System, Workflow Construction, and Learning are the novel and pivotal components of our AI knowledge worker, a few other supporting elements complete the overall architecture:
+
+- **Data Ingestion and Actions via APIs/Services**: This involves both input and output operations. The system requires secure and continuous data ingestion via APIs, which involves an ingestion engine and OAuth key management. Additionally, it should have the ability to quickly write and create Actions that allow the agent to use APIs to take real-world actions.
+
+- **Proactive Action and Time Context Understanding**: The system should periodically wake up, providing it the option to take proactive actions. In addition, past events are stored with time-based labels, thus allowing the system to gauge the passage of time and react accordingly.
+
+- **Understanding Multi-Person Context**: The system should have the capability to understand and operate across multiple conversation contexts, privacy scopes and mediums. Essentially this means that past context is presented clearly with the proper metadata to distinguish it from the "current" conversation.
+
+- **User Interface**: The primary mode of interaction with the system will be chat-based. However, a static dashboard/admin panel is also necessary. Inline UI elements displaying workflows, confirmations, and objects enhance the user experience. As the early-stage agent will have limited capabilities, the static UI and back-and-forth interaction with the user will be more important.
+
+## **The Path Forward**
+
+In envisioning the automated knowledge worker of the future, we have identified and defined the key components of a robust AI system - one equipped not just with the ability to answer queries but to proactively execute complex tasks with minimal user intervention. This system, built around three main components, namely Memory, Workflows, and Learning, leverages the capabilities of language models like GPT4 and augments them to transcend beyond our current baseline.
+
+Ultimately, AI systems will exist on a spectrum of generality and power. Achieving an entirely general-purpose automated knowledge worker out of the gate is not plausible or necessary. In fact, consider that even in the baseline scenario all elements exist in rudimentary form:
+
+- RAG as the basic memory system
+
+- Hardcoded workflows in the application layer
+
+- Learning/adjustment via standard software development
+
+The key is to build enough depth into these components to achieve an escape velocity. We can start with the core end-to-end backbone of this system that has practical utility and can be optimized. Productizing this system serves as the initial step.
+
+As we continue developing and fine-tuning each component, we drive the system gradually but steadily towards greater generality and power. The goal is to evolve methodically, enhancing capabilities over time while ensuring it remains practical and useful at every stage of its development.
