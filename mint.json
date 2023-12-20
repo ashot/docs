@@ -33,46 +33,36 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://docs.vello.ai"
-    },
-    {
-      "name": "Community",
-      "icon": "people",
-      "url": "https://feedback.vello.ai"
-    },
-    {
       "name": "Blog",
       "icon": "newspaper",
       "url": "https://blog.vello.ai"
+    },
+    {
+      "name": "Feedback",
+      "icon": "people",
+      "url": "https://vello.canny.io/feature-requests"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "pages": ["introduction", "quickstart", "signup"]
     },
     {
       "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
+      "pages": ["ui", "newchat", "history", "tips", "spaces"]
     },
     {
-      "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
+      "group": "Personas",
+      "pages": ["persona", "files", "images", "code", "train", "sharepersona"]
     },
     {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
+      "group": "In-depth",
+      "pages": ["keys", "multipersona", "web", "doc", "sharing"]
     }
+    
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/velloai"
   }
 }
