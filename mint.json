@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Vello Documentation",
   "logo": {
     "dark": "/images/logo-dark.png",
     "light": "/images/logo-light.png"
