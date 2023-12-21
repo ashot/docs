@@ -54,7 +54,7 @@
     },
     {
       "group": "Personas",
-      "pages": ["persona", "files", "images", "code", "train", "sharepersona"]
+      "pages": ["persona", "files", "images", "code", "train", "sharepersona", "vella"]
     },
     {
       "group": "More",
