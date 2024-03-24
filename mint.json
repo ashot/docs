@@ -56,6 +56,10 @@
       "group": "Personas",
       "pages": ["persona", "files", "images", "code", "train", "sharepersona", "vella"]
     },
+    { 
+      "group": "Vello Premium",
+      "pages": ["models", "plans"]
+    },
     {
       "group": "More",
       "pages": ["keys", "multipersona", "web", "doc", "sharing"]
